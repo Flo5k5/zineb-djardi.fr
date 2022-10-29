@@ -4,12 +4,12 @@
 //
 ////////////////////////////////////////////////////////////////
 
-import barba from '@barba/core';
-import gsap from 'gsap';
-import { scroll } from '../index';
-import { animation } from '../index';
-import { navigation } from '../index';
-import { videoblock } from '../index';
+import barba from "@barba/core";
+// import gsap from 'gsap';
+import { scroll } from "../index";
+// import { animation } from '../index';
+// import { navigation } from '../index';
+import { videoblock } from "../index";
 
 ////////////////////////////////////////////////////////////////
 //
@@ -18,47 +18,47 @@ import { videoblock } from '../index';
 ////////////////////////////////////////////////////////////////
 
 export default class Transition {
+  constructor() {
+    this.init();
+  }
 
-    constructor() {
-        this.init();
-    }
-    
-    init() {
-        let that = this;
+  init() {
+    let that = this;
 
-        barba.init({
-            debug: true,
+    barba.init({
+      debug: true,
 
-            transitions: [{
+      transitions: [
+        {
+          ////////////////////////////////////////////////////////////////
+          //
+          //  DEFAULT
+          //
+          ////////////////////////////////////////////////////////////////
 
-                ////////////////////////////////////////////////////////////////
-                //
-                //  DEFAULT
-                //
-                ////////////////////////////////////////////////////////////////
+          name: "default-transition",
+          leave(data) {
+            //
+            // console.log('LEAVE');
+          },
+          enter(data) {
+            //
+            // console.log('ENTER');
+          },
+          after(data) {
+            //
+            // console.log('AFTER');
+            videoblock.startAutoplay();
+            videoblock.coverAction();
+            scroll.reset();
+          },
+        },
+      ],
+    });
+  }
 
-                name: 'default-transition',
-                leave( data ) {
-                    //
-                    // console.log('LEAVE');
-                },
-                enter( data ) {
-                    //
-                    // console.log('ENTER');
-                },
-                after( data ) {
-                    //
-                    // console.log('AFTER');
-                    videoblock.startAutoplay();
-                    videoblock.coverAction();
-                    scroll.reset();
-                }
-            }]
-        });
-    }
-
-    link( link_ ) {
-        let link = link_;
-        barba.go( link );
-    }
+  link(link_) {
+    let link = link_;
+    barba.go(link);
+  }
 }

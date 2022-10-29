@@ -4,7 +4,7 @@
 //
 ////////////////////////////////////////////////////////////////
 
-import mediaLoaded from '@maeertin/medialoaded';
+import mediaLoaded from "@maeertin/medialoaded";
 
 ////////////////////////////////////////////////////////////////
 //
@@ -13,25 +13,23 @@ import mediaLoaded from '@maeertin/medialoaded';
 ////////////////////////////////////////////////////////////////
 
 export default class Loader {
+  constructor() {
+    this.loadMedia();
+  }
 
-    constructor() {
-        this.loadMedia();
-    }
+  loadMedia() {
+    const preloadImg = new Promise((resolve) => {});
 
-    loadMedia() {
-        const preloadImg = new Promise( resolve => {
-        });
+    const elements = document.querySelectorAll(".video");
+    console.log(elements);
+    mediaLoaded(elements, (instance) => {
+      console.log("All media loaded", instance);
+    });
 
-        const elements = document.querySelectorAll('.video');
-        console.log(elements);
-        mediaLoaded(elements, instance => {
-            console.log('All media loaded', instance)
-          })
+    let allDone = [preloadImg];
 
-        let allDone = [ preloadImg ];
-
-        Promise.all( allDone ).then( ()=> {
-            console.log('MEDIA LOADED');
-        });
-    }
+    Promise.all(allDone).then(() => {
+      console.log("MEDIA LOADED");
+    });
+  }
 }

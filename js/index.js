@@ -4,10 +4,10 @@
 //
 ////////////////////////////////////////////////////////////////
 
-import GLOBALS from './globals';
-import * as responsive from './utils/responsive';
+// import GLOBALS from './globals';
+import * as responsive from "./utils/responsive";
 // import Navigation from './classes/Navigation';
-import Scroll from './classes/Scroll';
+import Scroll from "./classes/Scroll";
 // import Animation from './classes/Animation';
 // import Transition from './classes/Transition';
 // import RAF from './classes/RAF';
@@ -16,7 +16,7 @@ import Scroll from './classes/Scroll';
 
 ////////////////////////////////////////////////////////////////
 //
-//  PROJECT 
+//  PROJECT
 //
 ////////////////////////////////////////////////////////////////
 
@@ -26,7 +26,7 @@ import Scroll from './classes/Scroll';
 //
 ////////////////////////////////////////////////////////////////
 
-responsive.cssSetTouchDevices( 'html', 'touch', 'no_touch' );
+responsive.cssSetTouchDevices("html", "touch", "no_touch");
 
 ////////////////////////////////////////////////////////////////
 //
@@ -90,19 +90,19 @@ export const scroll = new Scroll();
 //
 ////////////////////////////////////////////////////////////////
 
-window.addEventListener('load', () => {
-    // loader.hideLoader();
-    // scroll.init();
-    // scroll.action();
-    // raf.render();
+window.addEventListener("load", () => {
+  // loader.hideLoader();
+  // scroll.init();
+  // scroll.action();
+  // raf.render();
 });
 
-const header = document.querySelector( '#header' );
+const header = document.querySelector("#header");
 
-window.addEventListener( 'scroll', ( e ) => {
-    if( window.scrollY >= 200 ) {
-        header.classList.add( 'sticky' );
-    } else {
-        header.classList.remove( 'sticky' );
-    }
-} );
+window.addEventListener("scroll", (e) => {
+  if (window.scrollY >= 200) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+});

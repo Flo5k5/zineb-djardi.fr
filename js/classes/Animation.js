@@ -4,7 +4,7 @@
 //
 ////////////////////////////////////////////////////////////////
 
-import gsap from 'gsap';
+import gsap from "gsap";
 
 ////////////////////////////////////////////////////////////////
 //
@@ -13,81 +13,91 @@ import gsap from 'gsap';
 ////////////////////////////////////////////////////////////////
 
 export default class Animation {
+  constructor() {}
 
-    constructor() {
-    }
+  ////////////////////////////////////////////////////////////////
+  //
+  //  TEST HELLO
+  //
+  ////////////////////////////////////////////////////////////////
 
-    ////////////////////////////////////////////////////////////////
-    //
-    //  TEST HELLO
-    //
-    ////////////////////////////////////////////////////////////////
+  hello() {
+    console.log("HELLO");
+  }
 
-    hello() {
-        console.log('HELLO');
-    }
+  ////////////////////////////////////////////////////////////////
+  //
+  //  BLOCK TEXT
+  //
+  ////////////////////////////////////////////////////////////////
 
-    ////////////////////////////////////////////////////////////////
-    //
-    //  BLOCK TEXT
-    //
-    ////////////////////////////////////////////////////////////////
+  textIn(target_) {
+    let id = target_.el.dataset.id;
+    let t = document.querySelector('[data-id="' + id + '"]');
+    gsap.fromTo(
+      t,
+      {
+        yPercent: 20,
+        rotate: 3,
+        opacity: 0,
+      },
+      {
+        duration: 2,
+        ease: "power2.out",
+        opacity: 1,
+        rotate: 0,
+        yPercent: 0,
+      }
+    );
+  }
 
-    textIn( target_ ) {
-        let id = target_.el.dataset.id;
-        let t = document.querySelector( '[data-id="'+id+'"]' );
-        gsap.fromTo( t, {
-            yPercent: 20,
-            rotate: 3,
-            opacity: 0
-        }, {
-            duration: 2,
-            ease: 'power2.out',
-            opacity: 1,
-            rotate: 0,
-            yPercent: 0
-        } );
-    }
+  ////////////////////////////////////////////////////////////////
+  //
+  //  BLOCK IMAGES
+  //
+  ////////////////////////////////////////////////////////////////
 
-    ////////////////////////////////////////////////////////////////
-    //
-    //  BLOCK IMAGES
-    //
-    ////////////////////////////////////////////////////////////////
+  imageIn(target_) {
+    let id = target_.el.dataset.id;
+    let t = document.querySelector('[data-id="' + id + '"]');
 
-    imageIn( target_ ) {
-        let id = target_.el.dataset.id;
-        let t = document.querySelector( '[data-id="'+id+'"]' );
+    gsap.fromTo(
+      t,
+      {
+        yPercent: 20,
+        opacity: 0,
+      },
+      {
+        duration: 2,
+        ease: "power2.out",
+        yPercent: 0,
+        opacity: 1,
+      }
+    );
+  }
 
-        gsap.fromTo( t, {
-            yPercent: 20,
-            opacity: 0
-        }, {
-            duration: 2,
-            ease: 'power2.out',
-            yPercent: 0,
-            opacity: 1
-        } );
-    }
+  ////////////////////////////////////////////////////////////////
+  //
+  //  BLOCK VIDEO
+  //
+  ////////////////////////////////////////////////////////////////
 
-    ////////////////////////////////////////////////////////////////
-    //
-    //  BLOCK VIDEO
-    //
-    ////////////////////////////////////////////////////////////////
+  videoIn(target_) {
+    let id = target_.el.dataset.id;
+    let t = document.querySelector('[data-id="' + id + '"]');
 
-    videoIn( target_ ) {
-        let id = target_.el.dataset.id;
-        let t = document.querySelector( '[data-id="'+id+'"]' );
-
-        gsap.fromTo( t, {
-            yPercent: 20,
-            opacity: 0
-        }, {
-            duration: 2,
-            ease: 'power2.out',
-            yPercent: 0,
-            opacity: 1
-        } );
-    }
+    gsap.fromTo(
+      t,
+      {
+        yPercent: 20,
+        opacity: 0,
+      },
+      {
+        duration: 2,
+        ease: "power2.out",
+        yPercent: 0,
+        opacity: 1,
+      }
+    );
+  }
 }
