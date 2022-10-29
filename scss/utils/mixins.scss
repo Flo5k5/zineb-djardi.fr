@@ -1,0 +1,343 @@
+////////////////////////////////////////////////////////////////
+//
+//  ©PRAKT
+//
+////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////
+//
+//  MIXIN UTILS
+//
+////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////
+//
+//  CLEAN FONT RENDER
+//
+////////////////////////////////////////////////////////////////
+
+@mixin clean_fonts {
+	font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	// text-rendering: geometricPrecision;
+}
+
+////////////////////////////////////////////////////////////////
+//
+//  NO SCROLL
+//
+////////////////////////////////////////////////////////////////
+
+@mixin no_scroll {
+	overflow: hidden !important;
+}
+
+.no_scroll {
+	overflow: hidden !important;
+}
+
+////////////////////////////////////////////////////////////////
+//
+//  SMOOTH SCROLL UTILS
+//
+////////////////////////////////////////////////////////////////
+
+// SAFARI MOBILE DIV BOX NATIVE SMOOTH SCROLL
+@mixin smooth_scroll_mobile {
+	-webkit-overflow-scrolling: touch;
+}
+
+// HIDE SCROLL BAR
+@mixin hide_scroll {
+	overscroll-behavior: none;
+	&::-webkit-scrollbar { display: none; }
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+////////////////////////////////////////////////////////////////
+//
+//  SELECTION COLORS
+//
+////////////////////////////////////////////////////////////////
+
+@mixin selection( $bg, $cl) {
+	::selection { background: $bg; color: $cl; }
+}
+
+////////////////////////////////////////////////////////////////
+//
+//  FORMS
+//
+////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////
+//
+//  APPERANCE CLEAN UP
+//
+////////////////////////////////////////////////////////////////
+
+@mixin appearance_none {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+////////////////////////////////////////////////////////////////
+//
+//  PLACE HOLDER STYLES
+//
+////////////////////////////////////////////////////////////////
+
+@mixin placeHolder($color, $size)
+{
+	&::-webkit-input-placeholder {
+		color: $color;
+		font-size: $size;
+	}
+	&::input-placeholder {
+		color: $color;
+		font-size: $size;
+	}
+	&:-moz-placeholder {
+		color: $color;
+		font-size: $size;
+		opacity: 1;
+	}
+	&::-moz-placeholder {
+		color: $color;
+		font-size: $size;
+		opacity: 1;
+	}
+	&:-ms-input-placeholder {
+	   color: $color;
+	   font-size: $size;
+	}
+}
+
+////////////////////////////////////////////////////////////////
+//
+//  CHECK BOXE AND RADIO STYLES
+//
+////////////////////////////////////////////////////////////////
+
+@mixin checkbox_style {
+	// cache éléments par défaut
+	[type="checkbox"]:not(:checked),
+	[type="checkbox"]:checked,
+	[type="radio"]:not(:checked),
+	[type="radio"]:checked {
+	  position: absolute;
+	  left: -9999px;
+	}
+	 
+	// Label
+	[type="checkbox"]:not(:checked) + label,
+	[type="checkbox"]:not(:checked) + span,
+	[type="checkbox"]:checked + label,
+	[type="checkbox"]:checked + span,
+	[type="radio"]:not(:checked) + label,
+	[type="radio"]:not(:checked) + span,
+	[type="radio"]:checked + label,
+	[type="radio"]:checked + span {
+	  position: relative; /* permet de positionner les pseudo-éléments */
+	  padding-left: 30px; /* fait un peu d'espace pour notre case à venir */
+	  cursor: pointer;    /* affiche un curseur adapté */
+	}
+
+	// Checkbox aspect
+	// :before, will contain the skin
+	[type="checkbox"]:not(:checked) + label:before,
+	[type="checkbox"]:not(:checked) + span:before,
+	[type="checkbox"]:checked + label:before,
+	[type="checkbox"]:checked + span:before,
+	[type="radio"]:not(:checked) + label:before,
+	[type="radio"]:not(:checked) + span:before,
+	[type="radio"]:checked + label:before,
+	[type="radio"]:checked + span:before {
+	  content: '';
+	  position: absolute;
+	  left:0; top: -2px;
+	  width: 20px; height: 20px; /* dim. de la case */
+	  border: 1px solid black;
+	  background: #f8f8f8;
+	  border-radius: 0; /* angles arrondis */
+	  //box-shadow: inset 0 1px 3px rgba(0,0,0,.3) /* légère ombre interne */
+	}
+	[type="radio"]:not(:checked) + label:before,
+	[type="radio"]:not(:checked) + span:before,
+	[type="radio"]:checked + label:before,
+	[type="radio"]:checked + span:before {
+		border-radius: 1000px; /* angles arrondis */
+	}
+	
+	// Style for the check (inside the box) 
+	[type="checkbox"]:not(:checked) + label:after,
+	[type="checkbox"]:not(:checked) + span:after,
+	[type="checkbox"]:checked + label:after,
+	[type="checkbox"]:checked + span:after,
+	[type="radio"]:not(:checked) + label:after,
+	[type="radio"]:not(:checked) + span:after,
+	[type="radio"]:checked + label:after,
+	[type="radio"]:checked + span:after {
+	  content: '✔';
+	  position: absolute;
+	  font-family: 'Arial';
+	  top: -1px; left: 5px;
+	  font-size: 14px;
+	  color: black;
+	  transition: all .2s; /* on prévoit une animation */
+	}
+	
+	// If not checked
+	[type="checkbox"]:not(:checked) + label:after,
+	[type="checkbox"]:not(:checked) + span:after,
+	[type="radio"]:not(:checked) + label:after,
+	[type="radio"]:not(:checked) + span:after {
+	  opacity: 0; /* coche invisible */
+	  transform: scale(0); /* mise à l'échelle à 0 */
+	}
+	
+	// If checked
+	[type="checkbox"]:checked + label:after,
+	[type="checkbox"]:checked + span:after,
+	[type="radio"]:checked + label:after,
+	[type="radio"]:checked + span:after {
+	  opacity: 1; /* coche opaque */
+	  transform: scale(1); /* mise à l'échelle 1:1 */
+	}
+
+	// If disabled
+	[type="checkbox"]:disabled:not(:checked) + label:before,
+	[type="checkbox"]:disabled:not(:checked) + span:before,
+	[type="checkbox"]:disabled:checked + label:before,
+	[type="checkbox"]:disabled:checked + span:before,
+	[type="radio"]:disabled:not(:checked) + label:before,
+	[type="radio"]:disabled:not(:checked) + span:before,
+	[type="radio"]:disabled:checked + label:before,
+	[type="radio"]:disabled:checked + span:before {
+	  box-shadow: none;
+	  border-color: #bbb;
+	  background-color: #ddd;
+	}
+	
+	// If checked + disable
+	[type="checkbox"]:disabled:checked + label:after,
+	[type="checkbox"]:disabled:checked + span:after,
+	[type="radio"]:disabled:checked + label:after,
+	[type="radio"]:disabled:checked + span:after {
+	  color: #999;
+	}
+	
+	// Label style if disable
+	[type="checkbox"]:disabled + label,
+	[type="checkbox"]:disabled + span,
+	[type="radio"]:disabled + label,
+	[type="radio"]:disabled + span {
+	  color: #aaa;
+	}
+	 
+	// Style on focus
+	[type="checkbox"]:checked:focus + label:before,
+	[type="checkbox"]:checked:focus + span:before,
+	[type="checkbox"]:not(:checked):focus + label:before,
+	[type="checkbox"]:not(:checked):focus + span:before,
+	[type="radio"]:checked:focus + label:before,
+	[type="radio"]:checked:focus + span:before,
+	[type="radio"]:not(:checked):focus + label:before,
+	[type="radio"]:not(:checked):focus + span:before {
+	  //border: 1px dotted blue;
+	}
+}
+
+@mixin checkbox_style_override( $position_box, $position_check ) {
+	[type="checkbox"]:not(:checked) + label:before,
+	[type="checkbox"]:not(:checked) + span:before,
+	[type="checkbox"]:checked + label:before,
+	[type="checkbox"]:checked + span:before,
+	[type="radio"]:not(:checked) + label:before,
+	[type="radio"]:not(:checked) + span:before,
+	[type="radio"]:checked + label:before,
+	[type="radio"]:checked + span:before {
+		top: $position_box;
+	}
+	[type="checkbox"]:not(:checked) + label:after,
+	[type="checkbox"]:not(:checked) + span:after,
+	[type="checkbox"]:checked + label:after,
+	[type="checkbox"]:checked + span:after,
+	[type="radio"]:not(:checked) + label:after,
+	[type="radio"]:not(:checked) + span:after,
+	[type="radio"]:checked + label:after,
+	[type="radio"]:checked + span:after {
+		top: $position_check;
+	}
+
+}
+
+////////////////////////////////////////////////////////////////
+//
+//  CHECK BOXE AND RADIO STYLES OVERRIDE
+//
+////////////////////////////////////////////////////////////////
+
+@mixin checkbox_style_override( $position_box, $position_check ) {
+	[type="checkbox"]:not(:checked) + label:before,
+	[type="checkbox"]:not(:checked) + span:before,
+	[type="checkbox"]:checked + label:before,
+	[type="checkbox"]:checked + span:before,
+	[type="radio"]:not(:checked) + label:before,
+	[type="radio"]:not(:checked) + span:before,
+	[type="radio"]:checked + label:before,
+	[type="radio"]:checked + span:before {
+		top: $position_box;
+	}
+	[type="checkbox"]:not(:checked) + label:after,
+	[type="checkbox"]:not(:checked) + span:after,
+	[type="checkbox"]:checked + label:after,
+	[type="checkbox"]:checked + span:after,
+	[type="radio"]:not(:checked) + label:after,
+	[type="radio"]:not(:checked) + span:after,
+	[type="radio"]:checked + label:after,
+	[type="radio"]:checked + span:after {
+		top: $position_check;
+	}
+
+}
+
+////////////////////////////////////////////////////////////////
+//
+//  FILE FIELD STYLES
+//
+////////////////////////////////////////////////////////////////
+
+@mixin file_style {
+	.file_input {
+		color: transparent;
+	}
+	.file_input::-webkit-file-upload-button {
+		visibility: hidden;
+	}
+	.file_input::before {
+		content: 'Add file';
+		display: inline-block;
+		background: linear-gradient(top, #f9f9f9, #e3e3e3);
+		border: 1px solid #999;
+		border-radius: 3px;
+		padding: 5px 8px;
+		outline: none;
+		white-space: nowrap;
+		-webkit-user-select: none;
+		cursor: pointer;
+		text-shadow: 1px 1px #fff;
+		font-weight: 700;
+		font-size: 10pt;
+		color: black;
+	}
+	.file_input:hover::before {
+		border-color: black;
+	}
+	.file_input:active::before {
+		background: linear-gradient(#e3e3e3, #f9f9f9);
+	}
+}
