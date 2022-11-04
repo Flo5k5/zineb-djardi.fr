@@ -6,8 +6,6 @@
     "dev": "webpack -c webpack.development.config.js --watch",
     "start": "webpack serve -c webpack.development.config.js"
   },
-  "author": "prakt",
-  "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.17.2",
     "@babel/preset-env": "^7.16.11",
