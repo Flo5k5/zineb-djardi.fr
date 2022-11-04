@@ -21,13 +21,14 @@ export default class Scroll {
 
   init() {
     this.scroll = new LocomotiveScroll({
-      el: document.querySelector(".scroll_wrapper"),
+      el: document.querySelector("[data-scroll-container]"),
       smooth: true,
       lerp: 0.09,
       multiplier: 2,
       scrollFromAnywhere: true,
       getSpeed: true,
     });
+    console.log(this.scroll);
   }
 
   reset() {

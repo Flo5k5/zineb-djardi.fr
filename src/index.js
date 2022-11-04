@@ -90,9 +90,11 @@ export const scroll = new Scroll();
 //
 ////////////////////////////////////////////////////////////////
 
+console.log(scroll);
+
 window.addEventListener("load", () => {
   // loader.hideLoader();
-  // scroll.init();
+  scroll.init();
   // scroll.action();
   // raf.render();
 });
@@ -100,9 +102,9 @@ window.addEventListener("load", () => {
 const header = document.querySelector("#header");
 
 window.addEventListener("scroll", (e) => {
-  if (window.scrollY >= 200) {
-    header.classList.add("sticky");
-  } else {
-    header.classList.remove("sticky");
-  }
+  // if (window.scrollY >= 200) {
+  //   header.classList.add("sticky");
+  // } else {
+  //   header.classList.remove("sticky");
+  // }
 });
