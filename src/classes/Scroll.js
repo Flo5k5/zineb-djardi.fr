@@ -8,6 +8,7 @@ import LocomotiveScroll from "locomotive-scroll";
 //
 ////////////////////////////////////////////////////////////////
 
+
 export default class Scroll {
   constructor() {
     this.scroll;
@@ -44,6 +45,7 @@ export default class Scroll {
   }
 
   info() {
+   console.log('ya');
     // console.log(this.scroll.scroll.instance.scroll.y);
     // console.log(this.scroll.scroll.instance.speed);
     // console.log(this.scroll.scroll);
