@@ -9,6 +9,9 @@
 //  HTML TAGS
 //
 ////////////////////////////////////////////////////////////////
+/// 
+/// 
+
 
 div.a:hover {
   perspective: 500px;
@@ -264,7 +267,7 @@ h1 {
     line-height: 20vw;
 
     &:not(:last-child) {
-      margin-right: 20vw;
+      margin-right: 10vw;
     }
 
     @media screen and (min-width: $g__resp_sm) {
