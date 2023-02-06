@@ -1,4 +1,11 @@
 import gsap from "gsap";
+//import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+//gsap.registerPlugin(ScrollTrigger);
+
+
+
+
 
 ////////////////////////////////////////////////////////////////
 //
@@ -8,6 +15,7 @@ import gsap from "gsap";
 
 export default class Animation {
   constructor() {}
+
 
   //  BLOCK TEXT
   textIn(target_) {
@@ -70,3 +78,5 @@ export default class Animation {
     );
   }
 }
+
+
