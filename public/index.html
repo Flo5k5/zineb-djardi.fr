@@ -19,18 +19,39 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-4">
-                    <div id="logo" data-scroll-section>Zineb Djardi</div>
+                    <div id="logo" >Zineb Djardi</div>
                 </div>
                 <div class="col-sm-8">
-                    <div id="menu" data-scroll-section>
+                    <div id="menu">
                         <ul class="nav">
-                            <li class="nav__link"><a href="#approche">Approche</a></li>
-                            <li class="nav__link"><a href="#methode">Méthode</a></li>
-                            <li class="nav__link"><a href="#cas-clients">Cas clients</a></li>
-                            <li class="nav__link"><a href="contact.html">Contact</a></li>
+                            <li class="nav__link"><a href="#approche" data-scroll-to>Approche</a></li>
+                            <li class="nav__link"><a href="#methode" data-scroll-to>Méthode</a></li>
+                            <li class="nav__link"><a href="#cas-clients" data-scroll-to>Cas clients</a></li>
+                            <li class="nav__link"><a href="#contact" data-scroll-to>Contact</a></li>
                         </ul>
                     </div>
+
+                    <div id="menu_mobile">
+                        <input type='checkbox' id='toggle' style='display:none;' />
+                        <label class='toggle-btn toggle-btn__cross' for='toggle'>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                          </label>
+                            <nav>
+                                <ul class="nav_mobile">
+                                    <li class="nav__link"><a href="#approche" data-scroll-to>Approche</a></li>
+                                    <li class="nav__link"><a href="#methode" data-scroll-to>Méthode</a></li>
+                                    <li class="nav__link"><a href="#cas-clients" data-scroll-to>Cas clients</a></li>
+                                    <li class="nav__link"><a href="#contact" data-scroll-to>Contact</a></li>
+                                </ul>
+                            </nav>
+                    </div>
+
+
+
                 </div>
+                
             </div>
             
             
@@ -44,7 +65,7 @@
                         <div id="bloc_title" data-scroll data-scroll-speed="0.5">
                             <h1 data-scroll data-scroll-speed="1">UX – UI Designer</h1>
                             <p  data-scroll data-scroll-speed="2    ">Conception d’expérience utilisateur <br>& Design d’interface.</p>
-                            <div class="arrow"  data-scroll data-scroll-speed="4"><img src="./img/arow-down.svg" width="48px" height="95px" alt=""  data-scroll data-scroll-speed="2">
+                            <div class="arrow"  data-scroll data-scroll-speed="3"><img src="./img/arow-down.svg" width="48px" height="95px" alt=""  data-scroll data-scroll-speed="2">
                         </div>
                     </div>
                 </div>
@@ -59,12 +80,12 @@
         </div>
     </div>
 
-    <div class="section_2" id="approche" data-scroll-section>
+    <div class="section_2" data-scroll-section>
         <div class="container-fluid">
-            <div class="row">
+            <div class="row" id="approche" data-scroll-to>
                 <div class="col-sm-4">
                         <div class="title-2">
-                            <h2>Approche</h2>
+                            <h2 data-scroll data-scroll-delay="0.2" data-scroll-speed="2">Approche</h2>
                         </div>
                 </div>
                 <div class="col-sm-8">
@@ -75,15 +96,15 @@
     </div>
 
     <div class="section_3" data-scroll-section>
-        <div class="word_container" data-scroll data-scroll-speed="25" data-scroll-direction="horizontal">
+        <div class="word_container" data-scroll data-scroll-speed="13" data-scroll-direction="horizontal">
             <div class="word">Analyse</div>
             <div class="word">Conception</div>
             <div class="word">Evalutation</div>
         </div>
     </div>
 
-    <div class="section_4" data-scroll-section>
-        <div class="nav" id="methode"  data-scroll data-scroll-sticky data-scroll-speed="0" >
+    <div id="methode" class="section_4" data-scroll-section>
+        <div class="nav">
             <div class="container-fluid">
                 <div class="row">
                     <div class="methode" >
@@ -150,7 +171,7 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="text_slide">
-                                    <p>test.</p> 
+                                    <p>Organisation de tests pour évaluer votre dispositif par vos utilisateurs cibles. Détection des problèmes d’utilisabilité, identification des points de blocages et obtention de pistes d’amélioration. La première phase de test s’effectue en amont du développement pour réduire les coûts et faire les ajustements nécessaires pour s’aligner aux besoins des utilisateurs. Les tests sont ensuite effectués dans le temps en fonction des évolutions du dispositif.</p> 
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -169,7 +190,7 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="text_slide">
-                                    <p>test.</p> 
+                                    <p>Design graphique de l’interface et conception des interactions. Cette phase est crucial car elle participe à l’ergonomie de votre produit ou service et incarne son positionnement, ses valeurs. Les éléments graphiques (illustrations, images, icônes...), les couleurs, les polices de caractère permettent de rendre agréable son utilisation et contribue à une expérience utilisateur réussie.</p> 
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -187,8 +208,8 @@
     </div>
 
 
-    <div class="section_5" data-scroll-section>
-        <div class="cas_client" id="cas-clients">
+    <div id="cas-clients" class="section_5" data-scroll-section>
+        <div class="cas_client">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6">
@@ -215,47 +236,63 @@
         </div>
         <div class="slide_container_cas_client">
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="slide1_cas_client">
-                                <div class="container_img">
-                                    <div class="img_slide_1"><img src="./img/hubavocat-screen-1.svg" alt=""></div>
-                                    <div class="img_slide_2"><img src="./img/hubavocat-screen-2.svg" alt=""></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="container_content_cas_client">
-                                <div class="content_cas_client">
-                                    <div class="logo_cas_client"><img src="./img/logo-hubavocat.svg" alt=""></div>
-                                    <p>Refonte UX / UI de la plateforme de services Hub Avocat dédiée aux avocats. A la fois réseau social, bourse d'opportunités, ressources juridiques, boîte à outils et logiciels experts.</p>
-                                    <a href="cas-client-hubavocat.html">Voir le cas client</a>
-                                </div>
-                                <div class="nav_slider_mob">
-                                    <div class="pagination">
-                                        <p class="number_1">01/02</p>
-                                        <p class="number_2">02/02</p>
-                                    </div>
-                                    <div class="arrows_slider">
-                                        <div class="arrow_left_small"><img src="./img/arrow-left-small.svg" alt=""></div>
-                                        <div class="arrow_right_small"><img src="./img/arrow-right-small.svg" alt=""></div>
+
+                    <div class="slide_cas_client_01">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="slide_cas_client">
+                                    <div class="container_img">
+                                        <div class="img_slide_bottom" data-scroll data-scroll-delay="0.2" data-scroll-speed="1"><img src="./img/hubavocat-screen-1.svg" alt=""></div>
+                                        <div class="img_slide_top" data-scroll data-scroll-delay="0.2" data-scroll-speed="2"><img src="./img/hubavocat-screen-2.svg" alt=""></div>
                                     </div>
                                 </div>
                             </div>
-                            
+                            <div class="col-sm-6">
+                                <div class="container_content_cas_client">
+                                    <div class="content_cas_client">
+                                        <div class="logo_cas_client"><img src="./img/logo-hubavocat.svg" alt=""></div>
+                                        <p>Refonte UX / UI de la plateforme de services Hub Avocat dédiée aux avocats. A la fois réseau social, bourse d'opportunités, ressources juridiques, boîte à outils et logiciels experts.</p>
+                                        <a href="cas-client-hubavocat.html">Voir le cas client</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+                    <div class="slide_cas_client_02">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="slide_cas_client">
+                                    <div class="container_img">
+                                        <div class="img_slide_bottom" data-scroll data-scroll-delay="0.2" data-scroll-speed="1"><img src="./img/semji-screen-1.svg" alt=""></div>
+                                        <div class="img_slide_top" data-scroll data-scroll-delay="0.2" data-scroll-speed="2"><img src="./img/semji-screen-2.png" alt=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="container_content_cas_client">
+                                    <div class="content_cas_client">
+                                        <div class="logo_cas_client"><img src="./img/logo-semji.svg" alt=""></div>
+                                        <p>Conception UX / UI de la plateforme Semji qui permet de produire et d'optimiser les contenus web tout en proposant un monitoring et un suivi des performances.</p>
+                                        <a href="cas-client-hubavocat.html">Voir le cas client</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
         </div>
     </div>
 
 
-    <div class="section_6" data-scroll-section>
+    <div id="contact" class="section_6" data-scroll-section>
         <div class="demande_contact">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-12">
-                        <p>Un projet de création,</br>de refonte ?</p>
+                        <p data-scroll data-scroll-delay="0.2" data-scroll-speed="1.5">Un projet de création,</br>de refonte ?</p>
                     </div>
                 </div>
             </div>
@@ -263,9 +300,9 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="contact_projet">
-                            <h2>Parlons</br> de votre projet</h2>
+                            <h2 data-scroll data-scroll-delay="0.5" data-scroll-speed="3">Parlons</br> de votre projet</h2>
                         </div>
-                        <div class="arrow_demande_contact">
+                        <div class="arrow_demande_contact" data-scroll data-scroll-speed="-1">
                             <img src="./img/arow-down.svg" alt="">
                         </div>
                         <div class="mail">
@@ -276,18 +313,16 @@
                 </div>
             </div>
 
-        <div class="footer" data-scroll-section>
+        <div class="footer" >
              <div class="container-fluid">
                  <div class="row">
                     <div class="col-sm-12">
-                         <div class="liens_footer">
+                         <div class="liens_footer" data-scroll data-scroll-speed="0">
                              <div class="mentions">
-                                 <li><a href="#">Mentions Légales</a></li>
-                            </div>
-                            <div>
                                 <ul>
-                                     <li><a href="#">Instagram</a></li>
-                                     <li><a href="#">Mentions Légales</a></li>
+                                 <li><a href="#">Instagram</a></li>
+                                 <li><a href="#">Behance</a></li>
+                                 <li><a href="#">Linkedin</a></li>
                                 </ul>
                             </div>
                                 

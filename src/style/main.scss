@@ -9,8 +9,7 @@
 //  HTML TAGS
 //
 ////////////////////////////////////////////////////////////////
-/// 
-/// 
+
 
 
 div.a:hover {
@@ -84,11 +83,12 @@ h1 {
   color: $g__c_dark;
   z-index: 3;
   transition: all 0.5s ease-in-out;
-
+  opacity: 1!important;
   padding: 1em 0em;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(black, 0);
   background: rgba(white, 0.8);
+  pointer-events: all!important;
 
   &.sticky {
     padding: 0.2em 0;
@@ -101,11 +101,12 @@ h1 {
   }
 
   #menu {
-    @media screen and (max-width: 959px) {
-      .nav {
-        display: none;
-      }
+    display: none;
+
+    @media screen and (min-width: $g__resp_md) {
+      display: block;
     }
+    
 
     li a {
       font-size: 1em;
@@ -122,6 +123,141 @@ h1 {
       li.nav__link {
         padding-left: 3em;
       }
+    }
+  }
+
+  ////////////////////// MENU MOBILE ///////////////////
+  
+  #menu_mobile {
+    display: block;
+
+    @media screen and (min-width: $g__resp_md) {
+      display: none;
+    }
+
+    nav {
+      background-color:$g__c_pink;
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      opacity:0;
+      visibility:hidden;
+      transition:all 0.3s ease-in-out;
+      
+      ul {
+        list-style-type:none;
+        padding:0;
+        margin:0;
+        position:absolute;
+        left:50%;
+        top:170px;
+        transition:all 0.3s ease-in-out;
+        transform:translateX(-50%);
+      
+        li {
+          transform:translateY(50px);
+          opacity:0;
+          
+          a {
+            display:block;
+            font-size:2em;
+            text-decoration:none;
+            padding:10px 0;
+            text-align:center;
+            color:#fff;
+            transition:all 0.2s ease-in-out;
+            font-family: $g__global_fontfamily_title;
+            
+
+            &::after{
+              position: absolute;
+              content:"";
+              background:$g__c_color;
+              height:0.2rem;
+              width: 0%;
+              bottom:-0.05em;
+              left:0;
+              transition:0.5s all ease;
+            }
+      
+            &:hover {
+              &::after{
+                width:100%;
+              }
+          }
+        }
+      }
+    }
+    }
+
+
+    .toggle-btn {
+    display:block;
+    position:fixed;
+    z-index:10;
+    right:10px;
+    top:10px;
+    cursor:pointer;
+
+    .bar {
+      width:30px;
+      height:2px;
+      margin:7px auto;
+      background-color:$g__c_dark;
+      transition:all 0.3s ease-in-out;
+      
+      &:nth-child(2) {
+        width:20px;
+      }
+    }
+    }
+
+    #toggle:checked {
+    &~nav {
+      opacity:1;
+      visibility:visible;
+      height: 100vh;
+
+      ul {
+        top:70px;
+        
+        li {
+          transform:translateY(0px);
+          opacity:1;
+
+          @for $i from 1 through 4 {
+              $t: $i * 0.1;
+              &:nth-child(#{$i}) {
+                transition:all 0.3s cubic-bezier(.6,0,.8,1.5) #{$t}s; 
+              }
+            }
+        }
+      }
+    }
+
+    &+label.toggle-btn {
+      .bar {
+        background-color:$g__c_dark;
+
+        &:nth-child(2) {
+          transform:translateX(50px);
+          opacity:0;
+        }
+
+        &:nth-child(1) {
+          transform:translateY(10px) rotate(45deg);
+        }
+
+        &:nth-child(3) {
+          transform:translateY(-8px) rotate(-45deg);
+        }
+    }
+    }
+    
+
+
     }
   }
 }
@@ -143,13 +279,13 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 60px 0 0 0;
+    padding: 130px 0 0 0;
     gap: 20px;
     height: 100%;
 
     @media screen and (min-width: $g__resp_md) {
       height: 100vh;
-      padding: 0px;
+      padding: 60px 0 0 0;
       gap: 35px;
     }
 
@@ -267,7 +403,7 @@ h1 {
     line-height: 20vw;
 
     &:not(:last-child) {
-      margin-right: 10vw;
+      margin-right: 5vw;
     }
 
     @media screen and (min-width: $g__resp_sm) {
@@ -290,7 +426,7 @@ h1 {
 
   @media screen and (min-width: $g__resp_sm) {
     margin: 5em 0;
-    height: 100vh;
+    height: calc(100vh - 100px);
   }
 
   .methode {
@@ -319,7 +455,7 @@ h1 {
     left: 0;
     top: 0;
     width: 100%;
-    padding-top: 1em;
+    padding-top: 4em;
     // display: flex;
 
     @media screen and (min-width: $g__resp_sm) {
@@ -339,6 +475,7 @@ h1 {
       padding-right: 20px;
       cursor: pointer;
       font-size: 16px;
+    
 
       @media screen and (min-width: $g__resp_sm) {
         padding-right: 50px;
@@ -353,16 +490,23 @@ h1 {
       display: none;
       padding-left: 10px;
       opacity: 0.3;
+    
+  
     }
+    
+    li.active .number {
+      opacity: 1;
+        transition: all 0.5s ease-in-out;
+      }
+  
 
     li.active .label {
       display: inline-block;
       opacity: 1;
+       transition: all 0.8s ease-in-out;
     }
 
-    li.active .number {
-      opacity: 1;
-    }
+    
   }
 
   .slide_container {
@@ -430,10 +574,6 @@ h1 {
 }
 
 
-////////////////////////////////////////////////////////////////
-// SLIDER CHAT GPT
-///////////////////////////////////////////////////////////////
-
 
 
 ////////////////////////////////////////////////////////////////
@@ -449,7 +589,7 @@ h1 {
   padding: 3.5em 0 5em 0;
 
   @media screen and (min-width: $g__resp_sm) {
-    height: calc(100vh - 46px);
+    height: 100vh;
     padding: 5em 0 1em 0;
   }
 
@@ -485,7 +625,13 @@ h1 {
   }
 
   .nav_slider {
-    display: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-width: 5em;
+    padding-top: 50px;
+    margin-bottom: 30px;
+    justify-content: space-between;
 
     @media screen and (min-width: $g__resp_sm) {
       display: flex;
@@ -497,18 +643,7 @@ h1 {
     }
   }
 
-  .nav_slider_mob {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    min-width: 5em;
-    padding-top: 10px;
-    justify-content: space-between;
 
-    @media screen and (min-width: $g__resp_sm) {
-      display: none;
-    }
-  }
 
   .pagination {
     display: flex;
@@ -519,37 +654,67 @@ h1 {
     p {
       color: $g__c_white;
       margin-bottom: 0;
+      
+      &hover {
+        cursor: pointer;
+      }
     }
   }
 
-  .number_2 {
+  .number_1, .number_2 {
     display: none;
+  }
+
+  .number_1.active, .number_2.active {
+    display: block;
   }
 
   .arrows_slider {
     display: flex;
     flex-direction: row;
     align-items: center;
+    z-index: 5;
+  
   }
 
   .arrow_left_small {
     padding-right: 30px;
   }
 
+  
+  .arrow_left_small:hover, .arrow_right_small:hover {
+    cursor: pointer;
+  
+  }
+
   .slide_container_cas_client {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     padding: 1.1em 0;
+    height: 100%;
+    transition:0.5s all ease;
+    width: 100%;
+
 
     @media screen and (min-width: $g__resp_sm) {
       padding: 1.5em 0;
+      margin-top: -50px;
     }
   }
 
-  .slide1_cas_client {
+  .slide_cas_client_01 {
     display: flex;
     justify-content: center;
+    position: relative;
+  
+    
+    &.active {
+      opacity: 1;
+    }
+
+    
 
     .container_img {
       display: flex;
@@ -562,25 +727,80 @@ h1 {
       }
     }
 
-    .img_slide_1 {
+    .img_slide_bottom img {
       margin-top: -110px;
-    }
-
-    .img_slide_2 {
-      margin-top: 50px;
-      margin-left: -100px;
-    }
-
-    img {
-      // margin-top:-35px;
-      display: block;
-      width: 80%;
+      width: 135px;
 
       @media screen and (min-width: $g__resp_sm) {
-        width: 90%;
+        width: 225px;
+        margin-left: -50px;
       }
     }
+
+
+    .img_slide_top img{
+      margin-top: 0px;
+      width: 135px;
+      margin-left: -50px;
+
+      @media screen and (min-width: $g__resp_sm) {
+        margin-top: 0px;
+      width: 225px;
+      margin-left: -50px;
+      }
+
+    }
+
+    
   }
+
+  .slide_cas_client_02 {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  
+    
+    &.active {
+      opacity: 1;
+    }
+
+    .container_img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+
+      @media screen and (min-width: $g__resp_sm) {
+        margin-top: 0px;
+      }
+    }
+  
+
+    .img_slide_bottom img {
+      margin-left: 0px;
+      margin-top: -100px;
+      max-width: 250px;
+
+    @media screen and (min-width: $g__resp_sm) {
+      margin-left: 0px;
+      margin-top: -100px;
+      max-width: 550px;
+    }
+    }
+
+   .img_slide_top img {
+    margin-top: 30px;
+    margin-left: -200px;
+    max-width: 250px;
+
+    @media screen and (min-width: $g__resp_sm) {
+      margin-top: 220px;
+      margin-left: -450px;
+      max-width: 550px;
+    }
+    }
+
+}
 
   .container_content_cas_client {
     height: 100%;
@@ -656,7 +876,7 @@ h1 {
   p {
     font-size: 1.3em;
     margin-bottom: 0;
-    margin-top: 3em;
+    margin-top: 3.5em;
 
     @media screen and (min-width: $g__resp_sm) {
       font-size: 1.7em;
@@ -681,15 +901,45 @@ h1 {
     margin-top: 20px;
   }
 
+  img {
+    width : 1rem;
+
+    @media screen and (min-width: $g__resp_sm) {
+      width : 2rem;
+    }
+
+
+  }
+
   .mail {
     display: flex;
     justify-content: end;
 
-    a {
-      font-size: 1.3em;
+    a, a:visited,a:hover,a:active {
+      font-size: 7vw;
       margin-top: 25px;
-      line-height: 1.5em;
+      line-height: 1.2em;
       text-align: right;
+      transition:0.5s color ease;
+      position: relative;
+      
+
+      &::after{
+        position: absolute;
+        content:"";
+        background:$g__c_color;
+        height:0.2rem;
+        width: 0%;
+        bottom:-0.05em;
+        left:0;
+        transition:0.5s all ease;
+      }
+
+      &:hover {
+        &::after{
+          width:100%;
+        }
+      }
 
       @media screen and (min-width: $g__resp_sm) {
         font-size: 3vw;
@@ -697,6 +947,13 @@ h1 {
       }
     }
   }
+
+ 
+  
+
+  
+
+
 
   h2 {
     font-size: 20vw;
@@ -758,6 +1015,44 @@ h1 {
 
   li:first-of-type {
     padding-left: 0px;
+  }
+
+  a, a:visited,a:hover,a:active {
+    font-size: 1em;
+    margin-top: 25px;
+    line-height: 1.2em;
+    text-align: right;
+    transition:0.5s color ease;
+    position: relative;
+    margin-bottom: 35px;
+    
+
+    &::after{
+      position: absolute;
+      content:"";
+      background:$g__c_color;
+      height:0.1rem;
+      width: 0%;
+      bottom:-0.1em;
+      left:0;
+      transition:0.5s all ease;
+    }
+
+    &:hover {
+      &::after{
+        width:100%;
+      }
+    }
+
+    @media screen and (min-width: $g__resp_sm) {
+      font-size: 1.2em;
+      margin-top: 25px;
+      line-height: 1.2em;
+      text-align: right;
+      transition:0.5s color ease;
+      position: relative;
+    }
+
   }
 }
 
