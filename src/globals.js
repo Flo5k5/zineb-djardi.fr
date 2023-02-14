@@ -75,7 +75,7 @@ const arrowLeft = document.querySelector('.arrow_left_small');
 const arrowRight = document.querySelector('.arrow_right_small');
 let currentSlideClient = 0;
 
-const showSlideClient = (n) => {
+const showSlideClient = (n) => {w
   const transition = () => {
     sliderClient.forEach((element) => {
       element.style.transition = "all 1.5s ease";
