@@ -8,6 +8,7 @@ import Scroll from "./classes/Scroll";
 //import Videoblock from "./classes/Videoblock";
 //import Loader from "./classes/Loader";
 
+
 responsive.cssSetTouchDevices("html", "touch", "no_touch");
 
 //export const navigation = new Navigation();
