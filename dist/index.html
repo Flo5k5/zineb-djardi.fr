@@ -65,7 +65,7 @@
                         <div id="bloc_title" data-scroll data-scroll-speed="0.5">
                             <h1 data-scroll data-scroll-speed="1">UX – UI Designer</h1>
                             <p  data-scroll data-scroll-speed="-1    ">Conception d’expérience utilisateur <br>& Design d’interface.</p>
-                            <div class="arrow"  data-scroll data-scroll-speed="2"><img src="./img/arow-down.svg" width="48px" height="95px" alt=""  data-scroll data-scroll-speed="2">
+                            <div class="arrow"  data-scroll data-scroll-speed="1"><img src="./img/arow-down.svg" width="48px" height="95px" alt=""  data-scroll data-scroll-speed="2">
                         </div>
                     </div>
                 </div>
@@ -212,8 +212,7 @@
         <div class="cas_client">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-sm-6">
-                    </div>
+                    <div class="col-sm-6"></div>
                     <div class="col-sm-6">
                         <div class="container_nav_slider">
                             <div class="title_cas_client">
@@ -221,8 +220,9 @@
                             </div>
                             <div class="nav_slider">
                                 <div class="pagination">
-                                    <p class="number_1">01/02</p>
-                                    <p class="number_2">02/02</p>
+                                    <p class="number_1">01/03</p>
+                                    <p class="number_2">02/03</p>
+                                    <p class="number_2">03/03</p>
                                 </div>
                                 <div class="arrows_slider">
                                     <div class="arrow_left_small"><img src="./img/arrow-left-small.svg" alt=""></div>
@@ -264,7 +264,30 @@
                             <div class="col-sm-6">
                                 <div class="slide_cas_client">
                                     <div class="container_img">
-                                        <div class="img_slide_bottom" data-scroll data-scroll-delay="0.2" data-scroll-speed="1"><img src="./img/semji-screen-1.svg" alt=""></div>
+                                        <div class="img_slide_bottom" data-scroll data-scroll-delay="0.2" data-scroll-speed="1"><img src="./img/semji-screen-1.png" alt=""></div>
+                                        <div class="img_slide_top" data-scroll data-scroll-delay="0.2" data-scroll-speed="2"><img src="./img/semji-screen-2.png" alt=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="container_content_cas_client">
+                                    <div class="content_cas_client">
+                                        <div class="logo_cas_client"><img src="./img/logo-semji.svg" alt=""></div>
+                                        <p>Conception UX / UI de la plateforme Semji qui permet de produire et d'optimiser les contenus web tout en proposant un monitoring et un suivi des performances.</p>
+                                        <a href="cas-client-hubavocat.html">Voir le cas client</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="slide_cas_client_03">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="slide_cas_client">
+                                    <div class="container_img">
+                                        <div class="img_slide_bottom" data-scroll data-scroll-delay="0.2" data-scroll-speed="1"><img src="./img/semji-screen-1.png" alt=""></div>
                                         <div class="img_slide_top" data-scroll data-scroll-delay="0.2" data-scroll-speed="2"><img src="./img/semji-screen-2.png" alt=""></div>
                                     </div>
                                 </div>
@@ -390,8 +413,8 @@ menuItems[currentSlide].classList.add("active");
 
 
 const sliderClientContainerClient = document.querySelector('.slide_container_cas_client');
-const sliderClient = document.querySelectorAll('.slide_cas_client_01, .slide_cas_client_02');
-const pagination = document.querySelectorAll('.number_1, .number_2');
+const sliderClient = document.querySelectorAll('.slide_cas_client_01, .slide_cas_client_02, .slide_cas_client_03');
+const pagination = document.querySelectorAll('.number_1, .number_2, .number_3');
 const arrowLeft = document.querySelector('.arrow_left_small');
 const arrowRight = document.querySelector('.arrow_right_small');
 let currentSlideClient = 0;

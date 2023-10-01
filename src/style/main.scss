@@ -398,13 +398,15 @@ h1 {
 
   .word_container {
     display: flex;
+    flex-direction: column;
     //overflow: hidden;
     //overflow-x: scroll;
     //overflow-y: hidden;
-    padding: 3em 0;
+    padding: 3em 30px;
 
     @media screen and (min-width: $g__resp_sm) {
       padding: 8em 0;
+      flex-direction: row;
     }
 
     @include smooth_scroll_mobile;
@@ -413,7 +415,7 @@ h1 {
 
   .word {
     font-family: "GT-Super";
-    font-size: 20vw;
+    font-size: 15vw;
     line-height: 20vw;
 
     &:not(:last-child) {
@@ -421,7 +423,7 @@ h1 {
     }
 
     @media screen and (min-width: $g__resp_sm) {
-      font-size: 170px;
+      font-size: 8vw;
       line-height: 180px;
     }
   }
@@ -469,11 +471,12 @@ h1 {
     left: 0;
     top: 0;
     width: 100%;
-    padding-top: 4em;
+    padding-top: 2em;
     // display: flex;
 
     @media screen and (min-width: $g__resp_sm) {
       position: absolute;
+      padding-top: 4em;
     }
   }
 
@@ -625,26 +628,35 @@ h1 {
   .container_nav_slider {
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: flex-start;
     justify-content: space-between;
+    border-bottom: rgb(255 255 255 / 38%) solid 0.5px;
 
     @media screen and (min-width: $g__resp_sm) {
       flex-direction: row;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
     }
   }
 
   .title_cas_client {
-    font-size: 2em;
+    
     color: $g__c_white;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     text-align: center;
 
     @media screen and (min-width: $g__resp_sm) {
       margin-bottom: 0px;
       text-align: left;
+      margin-bottom: 10px;
     }
+
+    h2 {
+    font-family: $g__global_fontfamily;
+    font-size: $g__global_fontsize;
+    font-weight: 600;
+    }
+
   }
 
   .nav_slider {
@@ -689,11 +701,11 @@ h1 {
     }
   }
 
-  .number_1, .number_2 {
+  .number_1, .number_2, .number_3 {
     display: none;
   }
 
-  .number_1.active, .number_2.active {
+  .number_1.active, .number_2.active, .number_3.active {
     display: block;
   }
 
@@ -748,7 +760,7 @@ h1 {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-top: 30px;
+      margin-top: 80px;
 
       @media screen and (min-width: $g__resp_sm) {
         margin-top: 0px;
@@ -795,10 +807,15 @@ h1 {
     .container_img {
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       margin-top: 30px;
 
-      @media screen and (min-width: $g__resp_sm) {
+
+      @media screen and (min-width: $g__resp_sm) and (max-width: 1400px){
+        margin-top: 60px;
+      }
+
+      @media screen and (min-width: 1401px) {
         margin-top: 0px;
       }
     }
@@ -806,29 +823,105 @@ h1 {
 
     .img_slide_bottom img {
       margin-left: 0px;
-      margin-top: -100px;
+      margin-top: 0px;
       max-width: 250px;
 
     @media screen and (min-width: $g__resp_sm) {
       margin-left: 0px;
       margin-top: -50px;
-      max-width: 500px;
+      max-width: 28vw;
     }
     }
 
    .img_slide_top img {
-    margin-top: 30px;
+    margin-top: 70px;
     margin-left: -200px;
     max-width: 250px;
 
+      @media screen and (min-width: $g__resp_sm) and (max-width: 1400px){
+        margin-top: 70px;
+        margin-left: -350px;
+        max-width: 28vw;
+      }
+
+      @media screen and (min-width: 1401px) {
+        margin-top: 120px;
+        margin-left: -500px;
+        max-width: 28vw;
+      }
+
+      
+    }
+
+
+  }
+
+
+  .slide_cas_client_03 {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  
+    
+    &.active {
+      opacity: 1;
+    }
+
+    .container_img {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      margin-top: 30px;
+
+
+      @media screen and (min-width: $g__resp_sm) and (max-width: 1400px){
+        margin-top: 60px;
+      }
+
+      @media screen and (min-width: 1401px) {
+        margin-top: 0px;
+      }
+    }
+  
+
+    .img_slide_bottom img {
+      margin-left: 0px;
+      margin-top: 0px;
+      max-width: 250px;
+
     @media screen and (min-width: $g__resp_sm) {
-      margin-top: 100px;
-      margin-left: -450px;
-      max-width: 500px;
+      margin-left: 0px;
+      margin-top: -50px;
+      max-width: 28vw;
     }
     }
 
-}
+   .img_slide_top img {
+    margin-top: 70px;
+    margin-left: -200px;
+    max-width: 250px;
+
+      @media screen and (min-width: $g__resp_sm) and (max-width: 1400px){
+        margin-top: 70px;
+        margin-left: -350px;
+        max-width: 28vw;
+      }
+
+      @media screen and (min-width: 1401px) {
+        margin-top: 120px;
+        margin-left: -500px;
+        max-width: 28vw;
+      }
+
+      
+    }
+
+
+  }
+
+   
+
+  
 
   .container_content_cas_client {
     height: 100%;
@@ -837,17 +930,18 @@ h1 {
   .content_cas_client {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     height: 100%;
     padding-right: 0em;
-    margin-top: 25px;
-    margin-bottom: 25px;
+    margin-top: 55px;
+    margin-bottom: 40px;
     align-items: center;
 
     @media screen and (min-width: $g__resp_sm) {
       padding-right: 32%;
       margin-top: 0px;
       align-items: flex-start;
+      justify-content: center;
     }
 
     p {
@@ -956,11 +1050,12 @@ h1 {
 
     a, a:visited,a:hover,a:active {
       font-size: 7vw;
-      margin-top: 25px;
+      margin-top: 20px;
       line-height: 1.2em;
       text-align: right;
       transition:0.5s color ease;
       position: relative;
+      margin-bottom: 50px;
       
 
       &::after{
@@ -983,6 +1078,7 @@ h1 {
       @media screen and (min-width: $g__resp_sm) {
         font-size: 3vw;
         margin-top: 100px;
+        margin-bottom: 0px;
       }
     }
   }
@@ -1113,7 +1209,7 @@ h1 {
   height: 100vh;
 
   .overlay {
-    background-color: rgba(21, 27, 49, 0.85);
+    background-color: rgba(21, 27, 49, 0.90);
     height: 100%;
   }
 
@@ -1167,8 +1263,8 @@ h1 {
 
   .row-projet {
     padding: 1em 0;
-    border-top: solid 1px;
-    display: blok;
+    border-top: solid 0.8px;
+    display: block;
 
     @media screen and (min-width: $g__resp_sm) {
       padding: 2em 0;
@@ -1207,7 +1303,7 @@ h1 {
 ////////////////////////////////////////////////////////////////
 
 .objectif {
-  padding: 3em 0 0 0;
+  padding: 2em 0 0 0;
 
   @media screen and (min-width: $g__resp_sm) {
     padding: 8em 0 3em 0;
@@ -1464,8 +1560,9 @@ img.img-projet {
   background-size: cover;
   border-bottom: solid 0.5px $g__c_white;
 
-  @media screen and (min-width: $g__resp_sm) {
-  }
+  
+   
+    
 
   .overlay-next {
     background-color: rgba(21, 27, 49, 1);
@@ -1480,16 +1577,27 @@ img.img-projet {
   .cas-client-next-container {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     height: 100%;
-    padding: 4em 0;
+    padding: 4em 1em;
+    width: 100%;
+
+    @media screen and (min-width: $g__resp_sm) {
+      flex-wrap: wrap;
+    }
+
+    .col-sm-10 {
+      width: 100%;
+    }
 
     p {
       color: $g__c_white;
-      font-size: $g__global_fontsize;
+      font-size: 16px;
       font-family: $g__global_fontfamily;
       font-weight: 600;
       margin-bottom: 0;
+      margin-bottom: 5px;
     }
 
     .next {
@@ -1501,14 +1609,34 @@ img.img-projet {
       h2 {
         color: $g__c_white;
         margin-top: 0;
-        font-size: 2.5em;
-        margin-right: 1em;
+        font-size: 2em;
+        margin-right: 0em;
+        transition: 0.3s; 
+        width: 100%;      
       }
+
+      h2:hover {
+        margin-right: 1.7em;
+      }
+
+      
+
+      img {
+        width:50px;
+      }
+
+
+      .col-sm-10 {
+        width:100%;
+      }
+
+      
     }
   }
 }
 
+
+
 .overlay-next:hover {
-  background-color: rgba(21, 27, 49, 0.9);
-  height: 100%;
+  background-color: rgba(21, 27, 49, 0.95);
 }
