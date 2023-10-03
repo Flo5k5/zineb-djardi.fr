@@ -25,6 +25,7 @@ body {
   font-size: $g__global_fontsize;
   line-height: $g__global_lineheight;
   @include clean_fonts;
+ 
 
   // @include hide_scroll;
   // overflow: hidden; // FIX BUG IMEDIATE SCROLL ON LOAD
@@ -1003,16 +1004,17 @@ h1 {
     flex-direction: column;
     justify-content: space-between;
     align-items: stretch;
-    height: 100%;
+    height: 100vh;
   }
 
   p {
-    font-size: 1.3em;
+    font-size: 1.2em;
     margin-bottom: 0;
-    margin-top: 3.5em;
+    margin-top: 2em;
 
     @media screen and (min-width: $g__resp_sm) {
       font-size: 1.7em;
+      margin-top:4em;
     }
   }
 
@@ -1024,8 +1026,9 @@ h1 {
 
     @media screen and (min-width: $g__resp_sm) {
       margin-top: 0px;
+      height:  calc(100vh - 35vh);
     }
-  }
+    }
 
   .arrow_demande_contact {
     display: flex;
@@ -1047,15 +1050,16 @@ h1 {
   .mail {
     display: flex;
     justify-content: end;
+    margin-bottom: 50px;
 
     a, a:visited,a:hover,a:active {
-      font-size: 7vw;
+      font-size: 1.2em;
       margin-top: 20px;
       line-height: 1.2em;
       text-align: right;
       transition:0.5s color ease;
       position: relative;
-      margin-bottom: 50px;
+      margin-bottom: 0px;
       
 
       &::after{
@@ -1078,6 +1082,9 @@ h1 {
       @media screen and (min-width: $g__resp_sm) {
         font-size: 3vw;
         margin-top: 100px;
+        position: absolute;
+        bottom: 40px;
+        right: 40px;
         margin-bottom: 0px;
       }
     }
@@ -1102,21 +1109,35 @@ h1 {
   .footer {
     position: relative;
     width: 100%;
+    bottom: 40px;
+
+    @media screen and (min-width: $g__resp_sm) {
+      position: absolute;
+      width: 100%;
+      bottom: 40px;
+
+    }
+
   }
 
   .liens_footer {
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: left;
-    padding-bottom: 1em;
+    align-items: center;
     width: 100%;
     justify-content: flex-start;
+ 
 
     @media screen and (min-width: $g__resp_sm) {
+      position: relative;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
+      padding-bottom:0px;
+      margin-bottom: 0px;
+      bottom: 0px;
+
     }
   }
 
@@ -1574,6 +1595,8 @@ img.img-projet {
     height: 100%;
   }
 
+
+
   .cas-client-next-container {
     display: flex;
     flex-direction: row;
@@ -1586,6 +1609,12 @@ img.img-projet {
     @media screen and (min-width: $g__resp_sm) {
       flex-wrap: wrap;
     }
+
+    /*&::after {
+      content: url ("./img/arrow-next.svg");
+      width: 50px;
+      transition: 0.3s; 
+    }*/
 
     .col-sm-10 {
       width: 100%;
@@ -1609,15 +1638,11 @@ img.img-projet {
       h2 {
         color: $g__c_white;
         margin-top: 0;
-        font-size: 2em;
-        margin-right: 0em;
-        transition: 0.3s; 
+        font-size: 2em;       
         width: 100%;      
       }
 
-      h2:hover {
-        margin-right: 1.7em;
-      }
+    
 
       
 
